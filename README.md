@@ -140,6 +140,7 @@ from django.shortcuts import render
 
 def home(request):
     return render(request, 'gallery.html')
+    
 ```
 urls.py 
 ```
