@@ -7,35 +7,46 @@
 
 <body>
     <center>
-
 <h2>Image Gallery</h2>
+
 <div class="row">
-    <img src="{% static 'image1.jpg' %}" width="400" height="300" onclick="openImg(this)">
-    <img src="{% static 'image2.jpg' %}" width="400" height="300" onclick="openImg(this)">
-    <img src="{% static 'image3.jpg' %}" width="400" height="300" onclick="openImg(this)">
+    <div class="img-box">
+        <img src="{% static 'image1.jpg' %}" onclick="openImage(this)">
+    </div>
+    <div class="img-box">
+        <img src="{% static 'image2.jpg' %}" onclick="openImage(this)">
+    </div>
+    <div class="img-box">
+        <img src="{% static 'image3.jpg' %}" onclick="openImage(this)">
+    </div>
 </div>
 
 <div class="row">
-<img src="{% static 'image4.jpg' %}" width="400" height="300" onclick="openImg(this)">
-<img src="{% static 'image5.jpg' %}" width="400" height="300" onclick="openImg(this)">
+    <div class="img-box">
+        <img src="{% static 'image4.jpg' %}" onclick="openImage(this)">
+    </div>
+    <div class="img-box">
+        <img src="{% static 'image5.jpg' %}" onclick="openImage(this)">
+    </div>
 </div>
-
 <div id="popup">
-    <span id="close" onclick="closeImg()">&times;</span>
+    <span id="close" onclick="closeModal()">&times;</span>
     <img id="popupImg">
 </div>
 
 <script>
-function openImg(img){
-    document.getElementById("popup").style.display = "flex";
-    document.getElementById("popupImg").src = img.src;
+function openImage(img){
+    const modal = document.getElementById("popup");
+    const modalImg = document.getElementById("popupImg");
+
+    modalImg.src = img.src;
+    modal.style.display = "flex";
 }
 
-function closeImg(){
+function closeModal(){
     document.getElementById("popup").style.display = "none";
 }
 </script>
-
 </center>
 </body>
 </html>
